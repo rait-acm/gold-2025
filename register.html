@@ -4,8 +4,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>    
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="firebase.js" defer></script>
     <title>Competition Entry Form</title>
     <style>
         body {
@@ -141,83 +144,83 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Registration Form</h1>
-        <p>Please complete the form below to provide details for registration.</p>
-        
-        <div class="form-group">
-            <label style = "font-size: small; margin-top: 30px; margin-bottom: 30px;">Personal Information</label>
-        </div>
-
-        <div class="form-group">
-            <label>Full Name</label>
-            <div class="name-split">
-                <input type="text" placeholder="First Name">
-                <input type="text" placeholder="Last Name">
+        <form id="registrationForm">
+            <h1>Registration Form</h1>
+            <p>Please complete the form below to provide details for registration.</p>
+            
+            <div class="form-group">
+                <label style="font-size: small; margin-top: 30px; margin-bottom: 30px;">Personal Information</label>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email">
-        </div>
-
-        <div class="form-group">
-            <label>Phone</label>
-            <input type="tel">
-        </div>
-
-        <div class="form-group">
-            <label>College</label>
-            <input type="text">
-        </div>
-
-        <div class="form-group">
-            <label>Department</label>
-            <input type="text">
-        </div>
-
-        <div class="form-group">
-            <label>Roll No</label>
-            <input type="text">
-        </div>
-
-        <div class="form-group">
-            <label>Are you an ACM international member ?</label>
-            <div class="radio-group">
-                <label class="radio-label">
-                    <input type="radio" name="acm_member" value="yes">
-                    Yes
-                </label>
-                <label class="radio-label">
-                    <input type="radio" name="acm_member" value="no">
-                    No
-                </label>
+    
+            <div class="form-group">
+                <label>Full Name</label>
+                <div class="name-split">
+                    <input type="text" placeholder="First Name" id="firstname" required>
+                    <input type="text" placeholder="Last Name" id="lastname" required>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label>ACM Membership ID (NA if not a member)*</label>
-            <input type="email">
-        </div>
-
-        <div class="form-group">
-            <label style = "font-size: small; margin-top: 30px; margin-bottom: 30px;">Payment</label>
-        </div>
-
-        <div class="qr-section">
-            <img src="qr.jpeg" alt="Payment QR Code" class="qr-image">
-        </div>
-
-        <div class="form-group" style = "margin-top: 20px;">
-            <label> Transaction ID</label>
-            <input type="text">
-        </div>
-
-        <div class="form-group" style="margin-top: 30px; text-align: center;">
-            <button type="submit" class="submit-btn">Submit</button>
-        </div>
-
-        
+    
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="email" required>
+            </div>
+    
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" id="phone" required>
+            </div>
+    
+            <div class="form-group">
+                <label>College</label>
+                <input type="text" id="college" required>
+            </div>
+    
+            <div class="form-group">
+                <label>Department</label>
+                <input type="text" id="dept" required>
+            </div>
+    
+            <div class="form-group">
+                <label>Roll No</label>
+                <input type="text" id="rollNumber" required>
+            </div>
+    
+            <div class="form-group">
+                <label>Are you an ACM international member?</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="acm_member" id="radio" value="yes" required>
+                        Yes
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="acm_member" id="radio" value="no" required>
+                        No
+                    </label>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>ACM Membership ID (NA if not a member)*</label>
+                <input type="text" id="member2">
+            </div>
+    
+            <div class="form-group">
+                <label style="font-size: small; margin-top: 30px; margin-bottom: 30px;">Payment</label>
+            </div>
+    
+            <div class="qr-section">
+                <img src="qr.jpeg" alt="Payment QR Code" class="qr-image">
+            </div>
+    
+            <div class="form-group" style="margin-top: 20px;">
+                <label>Transaction ID</label>
+                <input type="text" id="transactionId" required>
+            </div>
+    
+            <div class="form-group" style="margin-top: 30px; text-align: center;">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
