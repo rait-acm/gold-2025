@@ -529,7 +529,7 @@ p {
         top: 116%;
         left: 0;
         width: 100%;
-        background-color: #ffd118;
+        background-color: #100d0079;
         z-index: 8; } }
     .navbar-area .navbar .navbar-nav .nav-item {
       margin: 0 16px;
@@ -651,16 +651,16 @@ p {
         margin-top: 0; } }
   .header-countdown .single-count-content.count-color-1 .count,
   .header-countdown .single-count-content.count-color-1 .text {
-    color: #ee163a; }
+    color: #FFD700; }
   .header-countdown .single-count-content.count-color-2 .count,
   .header-countdown .single-count-content.count-color-2 .text {
     color: #ffc107; }
   .header-countdown .single-count-content.count-color-3 .count,
   .header-countdown .single-count-content.count-color-3 .text {
-    color: #03a9f4; }
+    color: #FFA500; }
   .header-countdown .single-count-content.count-color-4 .count,
   .header-countdown .single-count-content.count-color-4 .text {
-    color: #8bc34a; }
+    color: #FF8C00; }
 
 .header-content {
   margin-top: 60px; }
