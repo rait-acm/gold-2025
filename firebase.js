@@ -6,7 +6,13 @@ import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.
 // Firebase configuration (replace with your Firebase project credentials)
 const firebaseConfig = {
 
-   
+    apiKey: "AIzaSyBeGepC3FDZxnBU9Tq287CVw-K2ts6Iuh0",
+    authDomain: "acm-form-59923.firebaseapp.com",
+    projectId: "acm-form-59923",
+    storageBucket: "acm-form-59923.firebasestorage.app",
+    messagingSenderId: "1025527183119",
+    appId: "1:1025527183119:web:c6a0d7371858e1e426307a",
+    measurementId: "G-2GNX07B8LN"
   
   };
   
