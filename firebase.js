@@ -4,7 +4,10 @@ import {
   getFirestore,
   doc,
   setDoc,
+  collection,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+
 
 // Firebase configuration (replace with your Firebase project credentials)
 const firebaseConfig = {
@@ -68,3 +71,84 @@ registrationForm.addEventListener("submit", async (event) => {
     alert("Failed to submit registration. Please try again.");
   }
 });
+
+async function exportToCSV() {
+  try {
+      const querySnapshot = await getDocs(collection(db, "gold"));
+      
+      // Define CSV headers
+      const headers = [
+          "TransactionId",
+          "FirstName",
+          "LastName",
+          "email",
+          "phone",
+          "college",
+          "departmentYear",
+          "ACMID",
+          "Member",
+          "rollNumber",
+          "ACMChapter"
+      ];
+
+      // Process Firestore data into CSV rows
+      const csvRows = [];
+      csvRows.push(headers.join(',')); // Add headers as first row
+
+      querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const row = [
+              doc.id,
+              data.FirstName || '',
+              data.LastName || '',
+              data.email || '',
+              data.phone || '',
+              data.college || '',
+              data.departmentYear || '',
+              data.ACMID || '',
+              data.Member || '',
+              data.rollNumber || '',
+              data.ACMChapter || ''
+          ].map(value => `"${value}"`);
+          csvRows.push(row.join(','));
+      });
+
+      // Convert array to CSV string
+      const csvContent = csvRows.join('\n');
+
+      // Create and trigger download of CSV file
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'registration_data.csv');
+      link.style.visibility = 'hidden';
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      Toastify({
+          text: "CSV export successful!",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "green",
+          close: true,
+      }).showToast();
+
+  } catch (error) {
+      console.error("Error exporting to CSV:", error);
+      Toastify({
+          text: "Failed to export CSV. Please try again.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "red",
+          close: true,
+      }).showToast();
+  }
+}
+
+//exportToCSV();
